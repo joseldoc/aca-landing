@@ -1,0 +1,17 @@
+:root{
+/* 4px base, doubling through the middle of the scale */
+--space-0:0px;--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;
+--space-6:24px;--space-7:32px;--space-8:40px;--space-9:48px;--space-10:64px;--space-11:80px;--space-12:112px;
+
+/* Vertical rhythm for marketing sections */
+--section-y-compact:64px;--section-y:96px;--section-y-loose:128px;
+
+/* Containers */
+--container-narrow:720px;--container:1120px;--container-wide:1320px;
+--gutter:24px;--gutter-lg:40px;
+
+/* Controls */
+--control-h-sm:36px;--control-h:44px;--control-h-lg:52px;
+--control-pad-x:20px;--field-pad-x:14px;
+--touch-min:44px;
+}

@@ -1,0 +1,59 @@
+/* ACA — mouvement v2. Vocabulaire ajouté par public/js/aca-motion.js (moteur unique, v2).
+   Tout ce qui masque est conditionné à .aca-motion-v2 : sans le script, rien ne disparaît.
+   --wipe / --rail / --progress sont des variables écrites par le moteur au défilement,
+   pas des tokens de design : elles n'ont pas de déclaration, seulement des valeurs de repli. */
+
+/* ---- titres découpés en mots : montée derrière un masque ---- */
+.aca-w{display:inline-block;overflow:hidden;vertical-align:bottom;padding:0 .08em .1em;margin:0 -.08em -.1em}
+.aca-w__i{display:inline-block;will-change:transform}
+.aca-motion-v2 [data-split] .aca-w__i{transform:translateY(105%);transition:transform 820ms cubic-bezier(.16,1,.3,1)}
+.aca-motion-v2 [data-split].is-in .aca-w__i{transform:none}
+
+/* ---- raclette : balayage clip-path piloté par le défilement ---- */
+.aca-motion-v2 .aca-wipe>*{clip-path:inset(0 calc(100% - var(--wipe,100%)) 0 0)}
+.aca-motion-v2 .aca-wipe::after{content:"";position:absolute;top:0;bottom:0;left:var(--wipe,100%);width:2px;background:var(--aqua-400);box-shadow:0 0 18px 2px color-mix(in oklch,var(--aqua-400) 60%,transparent);opacity:.9;transition:opacity 240ms linear;pointer-events:none;z-index:3}
+.aca-motion-v2 .aca-wipe.is-wiped::after{opacity:0}
+
+/* ---- ruban défilant ---- */
+.aca-marquee{display:flex;overflow:hidden;width:100%;mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.aca-marquee__track{display:flex;align-items:center;flex:0 0 auto;gap:var(--space-6);padding-right:var(--space-6);animation:aca-marquee 26s linear infinite;will-change:transform}
+.aca-marquee:hover .aca-marquee__track{animation-play-state:paused}
+@keyframes aca-marquee{to{transform:translate3d(-100%,0,0)}}
+
+/* ---- mot fantôme en arrière-plan de section ---- */
+.aca-ghost{position:absolute;font-family:var(--font-display);font-weight:800;letter-spacing:-.04em;line-height:.8;text-transform:lowercase;color:var(--ink-900);opacity:.045;pointer-events:none;user-select:none;white-space:nowrap;z-index:0}
+.aca-ghost--light{color:#fff;opacity:.07}
+
+/* ---- rail d'étape qui se remplit ---- */
+.aca-rail{position:relative;background:var(--border-subtle)}
+.aca-rail::after{content:"";position:absolute;inset:0 auto 0 0;width:2px;height:var(--rail,0%);background:var(--aqua-500)}
+.aca-rail--h{height:2px}
+.aca-rail--h::after{width:var(--rail,0%);height:2px}
+
+/* ---- barre de progression de lecture ---- */
+.aca-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:90;pointer-events:none}
+.aca-progress::after{content:"";display:block;height:100%;width:100%;background:var(--aqua-500);transform:scaleX(var(--progress,0));transform-origin:0 50%}
+
+/* ---- indice de défilement ---- */
+.aca-cue{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase}
+.aca-cue__line{display:block;width:52px;height:1px;background:currentColor;transform-origin:0 50%;animation:aca-cue 2.4s var(--ease-in-out,cubic-bezier(.4,0,.2,1)) infinite}
+@keyframes aca-cue{0%,100%{transform:scaleX(.3);opacity:.5}50%{transform:scaleX(1);opacity:1}}
+
+/* ---- survol : carte qui se soulève, media qui respire ---- */
+.aca-lift{transition:transform 420ms cubic-bezier(.16,1,.3,1),box-shadow 420ms cubic-bezier(.16,1,.3,1)}
+.aca-lift:hover{transform:translateY(-6px)}
+.aca-zoom{overflow:hidden}
+.aca-zoom>*{transition:transform 900ms cubic-bezier(.16,1,.3,1)}
+.aca-zoom:hover>*{transform:scale(1.045)}
+
+/* ---- lien à soulignement tracé ---- */
+.aca-ul{position:relative;text-decoration:none}
+.aca-ul::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:0 50%;transition:transform 420ms cubic-bezier(.16,1,.3,1)}
+.aca-ul:hover::after{transform:scaleX(1)}
+
+@media (prefers-reduced-motion:reduce){
+  .aca-marquee__track{animation:none}
+  .aca-cue__line{animation:none}
+  .aca-motion-v2 .aca-wipe>*{clip-path:none}
+  .aca-motion-v2 .aca-wipe::after{display:none}
+}

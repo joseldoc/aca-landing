@@ -1,0 +1,19 @@
+:root{
+/* ---- Ink / neutrals: cool petrol-tinted greys, never pure black ---- */
+--ink-900:#07222A;--ink-800:#0E2E38;--ink-700:#1C4450;--ink-600:#3A6470;--ink-500:#5F868F;--ink-400:#8FADB4;--ink-300:#BACDD1;--ink-200:#DCE7E9;--ink-100:#EDF3F4;--ink-050:#F6FAFA;--white:#FFFFFF;
+
+/* ---- Marine: the primary brand colour (deep, calm, contractual) ---- */
+--marine-900:#062B34;--marine-800:#0A3A46;--marine-700:#0F4C5C;--marine-600:#166274;--marine-500:#1E7A8C;--marine-400:#3B98AA;--marine-300:#7FC2CF;--marine-200:#BDE2E9;--marine-100:#E3F3F6;
+
+/* ---- Aqua: water / freshness accent, for highlights and active states ---- */
+--aqua-700:#087F8B;--aqua-600:#0E9AA7;--aqua-500:#22B8C6;--aqua-400:#4ECDD8;--aqua-300:#8BE0E8;--aqua-200:#C6F1F5;--aqua-100:#E9FAFC;
+
+/* ---- Eco: produits conformes, tri des déchets, engagement durable ---- */
+--eco-700:#2F6B4A;--eco-600:#3C8159;--eco-500:#4C9A6A;--eco-300:#9BD1B0;--eco-100:#E4F2E9;
+
+/* ---- Amber: signal / devis gratuit / attention ---- */
+--amber-700:#A87008;--amber-600:#C98A11;--amber-500:#E9A82C;--amber-300:#F6D68C;--amber-100:#FDF3DF;
+
+/* ---- Alert: erreurs de formulaire, incidents ---- */
+--alert-700:#8F2C23;--alert-600:#B23A2F;--alert-500:#D0483A;--alert-300:#EDA79F;--alert-100:#FBE7E4;
+}

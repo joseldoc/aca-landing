@@ -1,0 +1,63 @@
+/* ACA — motion utilities. Keyframes + reveal states (impossible en inline).
+   Respecte la règle de marque : easing sortant, translations 3–20 px, aucun rebond. */
+@keyframes aca-fade-up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+@keyframes aca-fade-in{from{opacity:0}to{opacity:1}}
+@keyframes aca-fade-right{from{opacity:0;transform:translateX(-18px)}to{opacity:1;transform:none}}
+@keyframes aca-scale-in{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:none}}
+@keyframes aca-rule-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes aca-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes aca-glow{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes aca-sheen{0%{transform:translateX(-120%)}100%{transform:translateX(220%)}}
+
+/* --- Entrées au chargement (héros) : .aca-enter + un rang 1→6 --- */
+.aca-enter{animation:aca-fade-up var(--duration-reveal) var(--ease-out) both}
+.aca-enter-1{animation-delay:40ms}.aca-enter-2{animation-delay:120ms}.aca-enter-3{animation-delay:200ms}
+.aca-enter-4{animation-delay:280ms}.aca-enter-5{animation-delay:360ms}.aca-enter-6{animation-delay:440ms}
+.aca-enter-right{animation:aca-scale-in 720ms var(--ease-out) both;animation-delay:160ms}
+.aca-float{animation:aca-float 9s var(--ease-in-out) infinite}
+.aca-rule-grow{transform-origin:left;animation:aca-rule-grow 700ms var(--ease-out) both;animation-delay:120ms}
+
+/* --- Révélations au scroll --- L'état masqué est scopé à .aca-motion, posée par
+   public/js/aca-motion.js : sans ce script, le contenu reste visible. --- */
+.aca-motion [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity 620ms var(--ease-out),transform 620ms var(--ease-out)}
+.aca-motion [data-reveal].is-in{opacity:1;transform:none}
+.aca-motion [data-reveal-stagger]>*{opacity:0}
+.aca-motion [data-reveal-stagger].is-in>*{animation:aca-fade-up 560ms var(--ease-out) both}
+.aca-motion [data-reveal-stagger].is-in>*:nth-child(1){animation-delay:0ms}
+.aca-motion [data-reveal-stagger].is-in>*:nth-child(2){animation-delay:70ms}
+.aca-motion [data-reveal-stagger].is-in>*:nth-child(3){animation-delay:140ms}
+.aca-motion [data-reveal-stagger].is-in>*:nth-child(4){animation-delay:210ms}
+.aca-motion [data-reveal-stagger].is-in>*:nth-child(5){animation-delay:280ms}
+.aca-motion [data-reveal-stagger].is-in>*:nth-child(6){animation-delay:350ms}
+.aca-motion [data-reveal-stagger].is-in>*:nth-child(7){animation-delay:420ms}
+.aca-motion [data-reveal-stagger].is-in>*:nth-child(8){animation-delay:490ms}
+
+/* --- Header collant : se resserre au défilement --- */
+[data-sticky-header]{transition:height var(--duration-base) var(--ease-out),box-shadow var(--duration-base) var(--ease-out),background-color var(--duration-base) var(--ease-out)}
+[data-sticky-header].is-scrolled{box-shadow:var(--shadow-2)}
+[data-sticky-header].is-scrolled .aca-header-inner{height:64px!important}
+.aca-header-inner{height:80px;transition:height var(--duration-base) var(--ease-out)}
+
+/* --- Survols renforcés --- */
+.aca-lift{transition:var(--transition-surface)}
+.aca-lift:hover{transform:translateY(-3px);box-shadow:var(--shadow-3)}
+.aca-nav-link{position:relative;transition:color var(--duration-fast) var(--ease-in-out)}.aca-nav-link::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--aqua-500);transform:scaleX(0);transform-origin:left;transition:transform var(--duration-base) var(--ease-out)}
+.aca-nav-link:hover{color:var(--marine-800)}
+.aca-nav-link:hover::after,.aca-nav-link.is-active::after{transform:scaleX(1)}
+.aca-btn{position:relative;overflow:hidden}
+.aca-btn--accent::after,.aca-btn--primary::after{content:"";position:absolute;top:0;bottom:0;width:38%;background:linear-gradient(to right,transparent,rgba(255,255,255,.28),transparent);transform:translateX(-120%);pointer-events:none}
+.aca-btn--accent:hover::after,.aca-btn--primary:hover::after{animation:aca-sheen 620ms var(--ease-out)}
+.aca-service{transition:var(--transition-surface),border-color var(--duration-fast) var(--ease-in-out)}
+.aca-service:hover .aca-service__icon{transform:translateY(-2px) rotate(-3deg)}
+.aca-service__icon{transition:transform var(--duration-base) var(--ease-out),background-color var(--duration-fast) var(--ease-in-out)}
+.aca-channel:hover .aca-channel__arrow{transform:translateX(3px)}
+.aca-channel__arrow{transition:transform var(--duration-base) var(--ease-out)}
+.aca-tile{transition:var(--transition-surface),border-color var(--duration-fast) var(--ease-in-out)}
+.aca-tile:hover{transform:translateY(-3px);border-color:var(--marine-300);box-shadow:var(--shadow-2)}
+
+@media(prefers-reduced-motion:reduce){
+.aca-enter,.aca-enter-right,.aca-float,.aca-rule-grow{animation:none!important}
+.aca-motion [data-reveal],.aca-motion [data-reveal-stagger]>*{opacity:1!important;transform:none!important;transition:none!important;animation:none!important}
+.aca-lift:hover,.aca-tile:hover{transform:none}
+.aca-btn--accent:hover::after,.aca-btn--primary:hover::after{animation:none}
+}

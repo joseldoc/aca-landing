@@ -1,0 +1,6 @@
+/* ACA Nettoyage webfonts.
+   NOTE: no font binaries were supplied with the brief. Both families are the
+   nearest Google Fonts matches for a sober French service-company voice and are
+   loaded from the Google Fonts CDN (the @font-face rules below are served by
+   that stylesheet). Replace with self-hosted files when provided. */
+@import url("https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap");

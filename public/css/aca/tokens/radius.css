@@ -1,0 +1,10 @@
+:root{
+/* Restrained radii: squarer than a startup, softer than an admin form */
+--radius-xs:3px;--radius-sm:6px;--radius-md:10px;--radius-lg:14px;--radius-xl:20px;--radius-pill:999px;
+--radius-card:var(--radius-md);--radius-control:var(--radius-sm);--radius-panel:var(--radius-lg);
+
+/* Borders */
+--border-hairline:1px;--border-strong:2px;--border-rule:1px;
+--border-color:var(--ink-200);--border-color-strong:var(--ink-300);
+--focus-ring-width:3px;
+}

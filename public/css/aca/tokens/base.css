@@ -1,0 +1,13 @@
+/* Minimal element defaults so specimen cards, components and kits agree. */
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:var(--font-body);font-size:var(--text-body);line-height:var(--lh-body);color:var(--text-body-color);background:var(--surface-page);-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--font-display);color:var(--text-strong);margin:0;letter-spacing:var(--tracking-heading);line-height:var(--lh-heading)}
+p{margin:0}
+a{color:var(--text-link);text-decoration:none;border-bottom:1px solid var(--marine-300);transition:color var(--duration-fast) var(--ease-in-out),border-color var(--duration-fast) var(--ease-in-out)}
+a:hover{color:var(--text-link-hover);border-bottom-color:var(--aqua-500)}
+:focus-visible{outline:var(--border-strong) solid var(--aqua-600);outline-offset:2px}
+::selection{background:var(--aqua-200);color:var(--ink-900)}
+.aca-eyebrow{font-family:var(--font-body);font-size:var(--text-eyebrow);font-weight:var(--weight-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase;color:var(--text-eyebrow-color)}
+/* Barre utilitaire : les mentions secondaires disparaissent avant de se replier sur deux lignes */
+.aca-util-mid{white-space:nowrap}
+@media(max-width:1060px){.aca-util-mid{display:none!important}}

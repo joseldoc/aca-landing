@@ -1,0 +1,26 @@
+# SFTP-only access for dropping production assets (e.g. real photos to
+# replace the Unsplash placeholders). Nobody gets an interactive shell.
+
+Port 22
+Protocol 2
+HostKey /etc/ssh/ssh_host_rsa_key
+HostKey /etc/ssh/ssh_host_ed25519_key
+
+PermitRootLogin no
+PasswordAuthentication no
+KbdInteractiveAuthentication no
+PubkeyAuthentication yes
+AuthorizedKeysFile /etc/ssh/authorized_keys/%u
+X11Forwarding no
+AllowTcpForwarding no
+AllowAgentForwarding no
+PermitTunnel no
+PrintMotd no
+
+Subsystem sftp internal-sftp
+
+Match User aca_sftp
+    ChrootDirectory /srv/sftp/uploads
+    ForceCommand internal-sftp
+    AllowTcpForwarding no
+    X11Forwarding no

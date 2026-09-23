@@ -1,0 +1,25 @@
+# Production compose file. Deliberately named so it is NOT auto-merged with
+# compose.override.yaml (that file only holds the local-dev Mailpit inbox
+# from `symfony/mailer`'s Flex recipe) — always invoke this one explicitly:
+#   docker compose -f docker-compose.prod.yml up -d --build
+services:
+  app:
+    build: .
+    restart: unless-stopped
+    env_file:
+      - .env.prod
+    ports:
+      - "80:80"
+      - "2222:22"
+    volumes:
+      # Persists SSH host keys (and the authorized_keys file, rewritten on
+      # every boot from SFTP_AUTHORIZED_KEYS) across container recreation,
+      # so `sftp` clients don't see a "host key changed" warning on redeploy.
+      - ssh_host_keys:/etc/ssh
+      # Persists uploaded/real photos across redeploys — without this,
+      # rebuilding the image would reset public/uploads/ to empty.
+      - uploads:/var/www/html/public/uploads
+
+volumes:
+  ssh_host_keys:
+  uploads:

@@ -1,0 +1,1 @@
+- From https://olympp.fr/, can you implement the first animation (logo appears like a splashscreen)

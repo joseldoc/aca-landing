@@ -1,0 +1,20 @@
+.git
+.idea
+.gitignore
+.dockerignore
+var/cache/*
+var/log/*
+vendor
+node_modules
+*.log
+# .env / .env.dev only ever hold safe placeholders (see .env) and Symfony's
+# Dotenv needs one present to boot during the build-time cache:warmup step —
+# real secrets belong in .env.prod / .env.local, which stay excluded below.
+.env.local
+.env.*.local
+.env.prod
+docker-compose*.yml
+compose.override.yaml
+DEPLOY.md
+README.md
+.claude

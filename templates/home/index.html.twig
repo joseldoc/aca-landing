@@ -1,0 +1,514 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="acan" data-cursor data-hide-header data-to-top data-intro="{{ asset('assets/logo-inverse.svg') }}" style="font-family:var(--font-body);color:var(--ink-700);background:#fff">
+    <div class="aca-progress" data-progress></div>
+
+    {% for message in app.flashes('success') %}
+        <div class="aca-alert aca-alert--success" style="border-radius:0;border-width:0 0 1px" role="status">
+            <div style="max-width:1200px;margin:0 auto;padding:0 40px;width:100%;display:flex;gap:var(--space-3)">
+                <span class="aca-alert__icon"><i data-lucide="check" width="18" height="18"></i></span>
+                <div class="aca-alert__body"><span class="aca-alert__title">{{ message }}</span></div>
+            </div>
+        </div>
+    {% endfor %}
+    {% for message in app.flashes('error') %}
+        <div class="aca-alert aca-alert--danger" style="border-radius:0;border-width:0 0 1px" role="alert">
+            <div style="max-width:1200px;margin:0 auto;padding:0 40px;width:100%;display:flex;gap:var(--space-3)">
+                <span class="aca-alert__icon"><i data-lucide="alert-circle" width="18" height="18"></i></span>
+                <div class="aca-alert__body"><span class="aca-alert__title">{{ message }}</span></div>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div style="background:var(--marine-900);color:var(--marine-200)">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px;height:40px;display:flex;align-items:center;gap:24px;font-size:12px;letter-spacing:.02em">
+            <span style="white-space:nowrap">Siège social Lyon — bureaux Paris</span>
+            <span class="util-mid" style="color:var(--marine-600)">•</span>
+            <span class="util-mid">Interventions tôt le matin, le soir et le week-end</span>
+            <a class="util-mid" href="mailto:acanettoyage.243@gmail.com" style="margin-left:auto;color:var(--marine-200)">acanettoyage.243@<wbr>gmail.com</a>
+            <span class="util-mid" style="color:var(--marine-600)">|</span>
+            <a href="tel:+33644959630" style="margin-left:auto;color:#fff;font-family:var(--font-mono);white-space:nowrap">+33 6 44 95 96 30</a>
+        </div>
+    </div>
+
+    <header data-sticky-header style="position:sticky;top:0;z-index:30;background:rgba(255,255,255,.93);backdrop-filter:blur(10px);border-bottom:1px solid var(--ink-200)">
+        <div class="aca-header-inner" style="max-width:1200px;margin:0 auto;padding:0 40px;display:flex;align-items:center;gap:36px">
+            <a href="#accueil" style="display:flex;align-items:center;border-bottom:0"><img src="{{ asset('assets/logo.svg') }}" alt="ACA Nettoyage" style="display:block;height:42px;width:auto"></a>
+            <nav class="aca-nav" style="display:flex;gap:22px;margin-left:8px;font-size:15px;font-weight:600;white-space:nowrap;min-width:0">
+                <a class="nav-l aca-nav-link" href="#prestations" style="color:var(--ink-600)">Prestations</a>
+                <a class="nav-l aca-nav-link" href="#secteurs" style="color:var(--ink-600)">Secteurs</a>
+                <a class="nav-l aca-nav-link" href="#engagements" style="color:var(--ink-600)">Engagements</a>
+                <a class="nav-l aca-nav-link" href="#tarifs" style="color:var(--ink-600)">Tarification</a>
+                <a class="nav-l aca-nav-link" href="#contact" style="color:var(--ink-600)">Contact</a>
+            </nav>
+            <div style="margin-left:auto;display:flex;align-items:center;gap:14px">
+                <a href="#contact" class="aca-btn aca-btn--primary">Devis gratuit</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="accueil" style="background:var(--marine-900);position:relative;overflow:hidden">
+        <span class="aca-ghost aca-ghost--light" data-parallax="0.3" aria-hidden="true" style="font-size:clamp(160px,20vw,300px);left:-30px;bottom:-68px">propreté</span>
+        <div style="position:absolute;inset:0;background:var(--pattern-stripe-dark)"></div>
+        <div style="position:absolute;top:-120px;right:-80px;width:520px;height:520px;border-radius:999px;background:radial-gradient(closest-side,rgba(34,184,198,.18),transparent);animation:aca-glow 7s var(--ease-in-out) infinite"></div>
+        <div class="aca-hero-grid" style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(40px,5vw,104px) 40px clamp(56px,7vw,128px)">
+            <div style="display:flex;flex-direction:column;gap:26px">
+                <div class="aca-enter aca-enter-1" style="display:flex;align-items:center;gap:12px"><span class="aca-rule-grow" style="width:36px;height:2px;background:var(--aqua-500)"></span><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-300)">Nettoyage &amp; propreté professionnelle</span></div>
+                <h1 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(40px,5.4vw,72px);line-height:1;letter-spacing:-.03em;font-weight:800;color:#fff;margin:0;max-width:640px">Des locaux propres, sains et agréables.</h1>
+                <p class="aca-enter aca-enter-3" style="font-size:20px;line-height:1.55;color:var(--marine-200);max-width:520px;margin:0">Bureaux, restaurants, véhicules, immeubles et logements : ACA Nettoyage intervient depuis Lyon, avec des bureaux à Paris. Un service fiable, flexible et adapté à vos besoins.</p>
+                <div class="aca-enter aca-enter-4" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
+                    <a href="#contact" class="aca-btn aca-btn--accent aca-btn--lg" data-magnetic="7">Demander un devis gratuit</a>
+                    <a href="https://wa.me/33644959630" class="aca-btn aca-btn--whatsapp aca-btn--lg" data-magnetic="7">Écrire sur WhatsApp</a>
+                </div>
+                <div class="aca-enter aca-enter-5" style="display:flex;gap:26px;flex-wrap:wrap;margin-top:10px;font-size:13px;color:var(--marine-200)">
+                    <span style="display:flex;align-items:center;gap:8px"><i data-lucide="clock" width="16" height="16" style="color:var(--aqua-400)"></i>Devis sous 24 h</span>
+                    <span style="display:flex;align-items:center;gap:8px"><i data-lucide="shield-check" width="16" height="16" style="color:var(--aqua-400)"></i>RC professionnelle</span>
+                    <span style="display:flex;align-items:center;gap:8px"><i data-lucide="map-pin" width="16" height="16" style="color:var(--aqua-400)"></i>Lyon &amp; Paris</span>
+                </div>
+            </div>
+            <div class="aca-enter-right aca-hero-figure" style="position:relative" data-parallax="0.1">
+                <div data-tilt="4" class="aca-media-reveal--load" style="position:relative;width:100%;min-width:0;height:420px;border-radius:14px;overflow:hidden;background:var(--marine-100)">
+                    <div class="aca-photo">
+                        <img src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?auto=format&fit=crop&w=1800&q=70" alt="Couloir vitré d'immeuble tertiaire, hors horaires">
+                        <a class="aca-photo__credit" href="https://unsplash.com/@miabaker" target="_blank" rel="noopener">Photo par Mia Baker sur Unsplash</a>
+                    </div>
+                </div>
+                <div class="aca-float aca-lift" data-parallax="0.22" style="position:absolute;right:-30px;top:-32px;width:250px;background:#fff;border-radius:12px;box-shadow:var(--shadow-3);padding:20px 22px;display:flex;flex-direction:column;gap:10px;z-index:2">
+                    <span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-700)">Visite technique</span>
+                    <span style="font-family:var(--font-display);font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--marine-800);line-height:1">Gratuite</span>
+                    <span style="font-size:13px;color:var(--ink-500);line-height:1.45">Nous évaluons vos locaux sur place avant tout chiffrage.</span>
+                </div>
+            </div>
+        </div>
+        <div style="height:4px;background:linear-gradient(to right,var(--aqua-500),var(--marine-600))"></div>
+    </section>
+
+    <div style="background:var(--marine-800);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:18px 0">
+        <div data-marquee="34" style="display:flex;overflow:hidden;width:100%">
+            <div style="display:flex;align-items:center;gap:32px;padding-right:32px">
+                {% for label in ['Bureaux et sièges', 'Véhicules et flottes', 'Restaurants et cuisines', 'Maisons et particuliers', 'Immeubles et parties communes', 'Magasins et commerces', 'Cabinets médicaux', 'Fin de chantier'] %}
+                <span style="display:inline-flex;align-items:center;gap:32px;white-space:nowrap;font-size:15px;font-weight:600;color:var(--marine-200)">{{ label }}<span style="width:5px;height:5px;border-radius:99px;background:var(--aqua-500);flex:0 0 auto"></span></span>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <section style="position:relative;background:var(--ink-900)">
+        <div data-wipe-track style="height:190vh;min-height:990px;position:relative">
+            <div style="position:sticky;top:0;height:100vh;min-height:520px;overflow:hidden;display:flex;align-items:center">
+                <div style="position:absolute;inset:0">
+                    <div style="position:absolute;inset:0;filter:grayscale(1) brightness(.42);transform:scale(1.03)"><img src="https://images.unsplash.com/photo-1549637642-90187f64f420?auto=format&fit=crop&w=1900&q=70" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+                    <div data-wipe style="position:absolute;inset:0"><img src="https://images.unsplash.com/photo-1549637642-90187f64f420?auto=format&fit=crop&w=1900&q=70" alt="Plateau de bureaux nettoyé" style="width:100%;height:100%;object-fit:cover"></div>
+                    <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,34,42,.92) 0%,rgba(7,34,42,.62) 46%,rgba(7,34,42,.24) 100%)"></div>
+                </div>
+                <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 40px;width:100%">
+                    <div style="max-width:560px;display:flex;flex-direction:column;gap:20px">
+                        <div style="display:flex;align-items:center;gap:12px"><span style="font-family:var(--font-mono);font-size:12px;font-weight:700;color:var(--aqua-400)">01</span><span style="width:36px;height:2px;background:var(--aqua-500)"></span><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-300)">Avant / après</span></div>
+                        <h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(34px,4.2vw,56px);line-height:1.04;letter-spacing:-.03em;font-weight:700;color:#fff;margin:0">Le même plateau, une heure plus tard.</h2>
+                        <p style="font-size:18px;line-height:1.6;color:var(--marine-200);margin:0;max-width:470px">Nous intervenons hors de vos horaires : vos équipes arrivent dans des locaux nets, sans jamais croiser un chariot ni une autolaveuse.</p>
+                        <div style="display:flex;flex-wrap:wrap;gap:12px">
+                            {% for tag in ['Sols traités', 'Surfaces de contact désinfectées', 'Sanitaires réapprovisionnés', 'Corbeilles vidées'] %}
+                            <span style="display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;border:1px solid rgba(255,255,255,.22);color:#fff;font-size:13px;font-weight:600">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        <span style="font-size:12px;color:rgba(255,255,255,.5);margin-top:4px">Faites défiler — la raclette révèle le résultat.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="background:#fff">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px">
+            <div data-reveal-stagger style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--ink-200);border-top:0;border-radius:0 0 12px 12px;background:#fff;box-shadow:var(--shadow-1)">
+                {% for stat in [{value: '24 h', label: 'Devis détaillé après visite des lieux'}, {value: '2', label: 'Implantations : Lyon et Paris'}, {value: '6', label: 'Familles de prestations couvertes'}, {value: '1', label: 'Référent unique pour le suivi'}] %}
+                <div style="padding:28px 26px;{% if not loop.last %}border-right:1px solid var(--ink-200){% endif %}">
+                    <div class="aca-stat"><span class="aca-stat__value">{{ stat.value }}</span><span class="aca-stat__label">{{ stat.label }}</span></div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section style="padding:120px 0;background:#fff">
+        <div style="max-width:1100px;margin:0 auto;padding:0 40px;display:flex;flex-direction:column;gap:32px">
+            <div data-reveal style="display:flex;align-items:center;gap:12px"><span style="width:36px;height:2px;background:var(--aqua-500)"></span><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-700)">Notre mission</span></div>
+            <p data-scrub style="font-family:var(--font-display);font-size:clamp(30px,3.7vw,54px);line-height:1.14;letter-spacing:-.026em;font-weight:700;color:var(--ink-900);margin:0;text-wrap:pretty">Garantir un environnement propre, sain et agréable, avec un service fiable, flexible et adapté à vos besoins spécifiques.</p>
+        </div>
+    </section>
+
+    <section aria-label="Propre, sain, agréable, fiable, flexible" style="background:var(--marine-900);padding:72px 0;overflow:hidden">
+        <div data-velocity class="aca-velocity" style="display:flex;flex-direction:column;gap:10px">
+            {% set velocityWords = ['Propre', 'Sain', 'Agréable', 'Fiable', 'Flexible'] %}
+            {% for dir in ['left', 'right'] %}
+            <div data-marquee="42" data-marquee-dir="{{ dir }}" style="display:flex;overflow:hidden;width:100%">
+                <div style="display:flex;align-items:center;gap:44px;padding-right:44px">
+                    <span style="display:inline-flex;align-items:center;gap:44px;white-space:nowrap">
+                        {% for word in velocityWords %}
+                        {% set isOutline = (dir == 'left') == (loop.index0 is odd) %}
+                        <span style="display:inline-flex;align-items:center;gap:44px;white-space:nowrap">
+                            <span{% if isOutline %} class="aca-outline"{% endif %} style="font-family:var(--font-display);font-size:clamp(64px,9vw,136px);font-weight:800;letter-spacing:-.035em;line-height:1.02;{% if isOutline %}color:transparent{% else %}color:#fff{% endif %}">{{ word }}</span>
+                            <span style="width:14px;height:14px;border-radius:99px;background:var(--aqua-500);flex:0 0 auto"></span>
+                        </span>
+                        {% endfor %}
+                    </span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section id="prestations" style="padding:104px 0 96px;position:relative;overflow:hidden">
+        <span class="aca-ghost" data-parallax="0.22" aria-hidden="true" style="font-size:clamp(120px,14vw,210px);right:-40px;top:-46px">domaines</span>
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px">
+            <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
+                <div style="max-width:640px">
+                    <span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-700)">Nos domaines d'intervention</span>
+                    <h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(30px,3.4vw,44px);line-height:1.08;letter-spacing:-.025em;font-weight:700;color:var(--ink-900);margin:14px 0 0">Du véhicule au restaurant, du bureau à la maison</h2>
+                </div>
+                <p style="font-size:16px;line-height:1.6;color:var(--ink-500);max-width:360px;margin:0">Interventions quotidiennes, hebdomadaires ou sur mesure. Chaque prestation est contractualisée après visite technique.</p>
+            </div>
+
+            <div data-reveal-stagger class="aca-domaines-grid" style="margin-top:52px">
+                <div class="aca-card aca-lift" style="display:flex;flex-direction:column;overflow:hidden">
+                    <div style="height:220px;border-bottom:1px solid var(--ink-200)">
+                        <div class="aca-photo">
+                            <img src="https://images.unsplash.com/photo-1740657254989-42fe9c3b8cce?auto=format&fit=crop&w=1400&q=70" alt="Agent en intervention — entretien des sols">
+                            <a class="aca-photo__credit" href="https://unsplash.com/@purocleanoffortworth" target="_blank" rel="noopener">Photo par PuroClean of Fort Worth sur Unsplash</a>
+                        </div>
+                    </div>
+                    <div style="padding:32px;display:flex;flex-direction:column;gap:18px">
+                        <div style="display:flex;align-items:center;gap:14px">
+                            <span style="display:flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:6px;background:var(--marine-100);color:var(--marine-700)"><i data-lucide="building-2" width="24" height="24"></i></span>
+                            <div><h3 style="font-family:var(--font-display);font-size:26px;font-weight:700;color:var(--ink-900);margin:0">Entretien de bureaux</h3><span style="font-size:14px;color:var(--ink-500)">La prestation la plus demandée</span></div>
+                        </div>
+                        <p style="font-size:16px;line-height:1.6;color:var(--ink-600);margin:0;max-width:540px">Nettoyage quotidien ou périodique de vos espaces de travail, avant l'arrivée ou après le départ de vos équipes.</p>
+                        <ul class="aca-checklist aca-checklist--two" style="margin:0;padding:0;list-style:none">
+                            {% for item in ['Vidage des corbeilles', 'Dépoussiérage complet', 'Désinfection des surfaces de contact', 'Balayage, lavage, aspiration des sols', 'Entretien des sanitaires', 'Réapprovisionnement des consommables'] %}
+                            <li class="aca-check"><span class="aca-check__mark"><i data-lucide="check" width="16" height="16"></i></span>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="aca-domaines-sub">
+                    <div class="aca-service aca-service--accent aca-lift">
+                        <span class="aca-service__icon"><i data-lucide="car" width="24" height="24"></i></span>
+                        <h3 class="aca-service__title">Nettoyage de véhicule</h3>
+                        <p class="aca-service__desc">Voitures, utilitaires et flottes, sur votre parking.</p>
+                        <ul class="aca-service__list">
+                            {% for item in ['Aspiration intérieure, coffre inclus', 'Shampoing des sièges et moquettes', "Désinfection de l'habitacle", 'Lavage extérieur sans dégradation'] %}
+                            <li class="aca-check"><span class="aca-check__mark"><i data-lucide="check" width="14" height="14"></i></span>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="aca-service aca-lift">
+                        <span class="aca-service__icon"><i data-lucide="utensils" width="24" height="24"></i></span>
+                        <h3 class="aca-service__title">Restaurants et cuisines</h3>
+                        <p class="aca-service__desc">Salle, office et cuisine, après le service.</p>
+                        <ul class="aca-service__list">
+                            {% for item in ['Dégraissage des plans et des sols', 'Désinfection des surfaces de contact', 'Sanitaires clients et vestiaires', 'Intervention de nuit ou tôt le matin'] %}
+                            <li class="aca-check"><span class="aca-check__mark"><i data-lucide="check" width="14" height="14"></i></span>{{ item }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div data-reveal-stagger class="aca-domaines-row3" style="margin-top:20px">
+                <div class="aca-service aca-lift">
+                    <span class="aca-service__icon"><i data-lucide="house" width="24" height="24"></i></span>
+                    <h3 class="aca-service__title">Maisons et particuliers</h3>
+                    <p class="aca-service__desc">Entretien régulier ou ponctuel du domicile.</p>
+                    <ul class="aca-service__list">
+                        {% for item in ['Entretien courant des pièces de vie', 'Vitres, balcons, terrasses', 'Remise en état avant / après déménagement'] %}
+                        <li class="aca-check"><span class="aca-check__mark"><i data-lucide="check" width="14" height="14"></i></span>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="aca-service aca-lift">
+                    <span class="aca-service__icon"><i data-lucide="home" width="24" height="24"></i></span>
+                    <h3 class="aca-service__title">Immeubles et parties communes</h3>
+                    <p class="aca-service__desc">Halls, cages d'escalier, ascenseurs, containers.</p>
+                    <ul class="aca-service__list">
+                        {% for item in ['Rampes, poignées et boîtes aux lettres', 'Sols lino, carrelage, béton', 'Sortie et rentrée des containers'] %}
+                        <li class="aca-check"><span class="aca-check__mark"><i data-lucide="check" width="14" height="14"></i></span>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="aca-service aca-service--accent aca-lift">
+                    <span class="aca-service__icon"><i data-lucide="sparkles" width="24" height="24"></i></span>
+                    <h3 class="aca-service__title">Prestations spécialisées</h3>
+                    <p class="aca-service__desc">Vitrerie en hauteur, moquettes, fin de chantier.</p>
+                    <ul class="aca-service__list">
+                        {% for item in ['Vitres en hauteur', 'Shampoing moquettes et fauteuils', 'Décapage et remise en cire des sols'] %}
+                        <li class="aca-check"><span class="aca-check__mark"><i data-lucide="check" width="14" height="14"></i></span>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="secteurs" style="padding:88px 0;background:var(--ink-050);border-top:1px solid var(--ink-200);border-bottom:1px solid var(--ink-200)">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px">
+            <div style="display:flex;align-items:baseline;gap:20px;flex-wrap:wrap">
+                <h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(24px,2.4vw,30px);line-height:1.15;letter-spacing:-.02em;font-weight:700;color:var(--ink-900);margin:0">Ce que nous nettoyons</h2>
+                <span style="font-size:15px;color:var(--ink-500)">Protocoles et horaires adaptés à chaque activité.</span>
+            </div>
+            <div data-reveal-stagger class="aca-secteurs-grid" style="margin-top:36px">
+                {% for sector in [{icon: 'building-2', label: 'Bureaux et sièges'}, {icon: 'house', label: 'Maisons et particuliers'}, {icon: 'store', label: 'Magasins et commerces'}, {icon: 'car', label: 'Véhicules et flottes'}, {icon: 'utensils', label: 'Restaurants et cuisines'}, {icon: 'home', label: 'Immeubles et résidences'}] %}
+                <div class="aca-tile" style="background:#fff;border:1px solid var(--ink-200);border-radius:10px;padding:20px 16px;display:flex;flex-direction:column;gap:12px">
+                    <i data-lucide="{{ sector.icon }}" width="22" height="22" style="color:var(--marine-600)"></i>
+                    <span style="font-size:14px;font-weight:600;color:var(--ink-800);line-height:1.35">{{ sector.label }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section style="padding:96px 0">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px">
+            <div data-reveal style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
+                <div style="max-width:620px">
+                    <div style="display:flex;align-items:center;gap:12px"><span style="width:36px;height:2px;background:var(--aqua-500)"></span><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-700)">Nos interventions en images</span></div>
+                    <h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(28px,3.1vw,40px);line-height:1.1;letter-spacing:-.025em;font-weight:700;color:var(--ink-900);margin:14px 0 0">Véhicule, bureau, restaurant, domicile</h2>
+                </div>
+                <p style="font-size:15px;line-height:1.6;color:var(--ink-500);max-width:320px;margin:0">Photos de calage Unsplash, à remplacer par nos propres prises de vue (voir le brief photo du design system).</p>
+            </div>
+            <div data-reveal-stagger class="aca-gallery-grid" style="margin-top:44px">
+                <div class="span-2" style="position:relative;min-width:0;height:100%;border-radius:12px;overflow:hidden">
+                    <div class="aca-photo"><img src="https://images.unsplash.com/photo-1652454449601-e83b62eabe94?auto=format&fit=crop&w=1400&q=70" alt="Véhicule — aspiration de l'habitacle, portière ouverte, parking couvert"><a class="aca-photo__credit" href="https://unsplash.com/@ivankazlouskij" target="_blank" rel="noopener">Photo par Ivan Kazlouskij sur Unsplash</a></div>
+                </div>
+                <div style="position:relative;min-width:0;height:100%;border-radius:12px;overflow:hidden">
+                    <div class="aca-photo"><img src="https://images.unsplash.com/photo-1694678505383-676d78ea3b96?auto=format&fit=crop&w=900&q=70" alt="Flotte — 3 utilitaires blancs alignés, fraîchement lavés"><a class="aca-photo__credit" href="https://unsplash.com/@helloimnik" target="_blank" rel="noopener">Photo par Nik sur Unsplash</a></div>
+                </div>
+                <div style="position:relative;min-width:0;height:100%;border-radius:12px;overflow:hidden">
+                    <div class="aca-photo"><img src="https://images.unsplash.com/photo-1579487785973-74d2ca7abdd5?auto=format&fit=crop&w=900&q=70" alt="Salle de réunion et espaces partagés"><a class="aca-photo__credit" href="https://unsplash.com/@joselosada" target="_blank" rel="noopener">Photo par Jose Losada sur Unsplash</a></div>
+                </div>
+                <div style="position:relative;min-width:0;height:100%;border-radius:12px;overflow:hidden">
+                    <div class="aca-photo"><img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=70" alt="Cuisine et coin repas"><a class="aca-photo__credit" href="https://unsplash.com/@naomish" target="_blank" rel="noopener">Photo par Naomi Hébert sur Unsplash</a></div>
+                </div>
+                <div style="position:relative;min-width:0;height:100%;border-radius:12px;overflow:hidden">
+                    <div class="aca-photo"><img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?auto=format&fit=crop&w=900&q=70" alt="Maison — séjour lumineux, microfibre sur un vitrage"><a class="aca-photo__credit" href="https://unsplash.com/@minhphamdesign" target="_blank" rel="noopener">Photo par Minh Pham sur Unsplash</a></div>
+                </div>
+                <div class="aca-photo--empty" style="border-radius:12px">À FOURNIR — salle de restaurant après nettoyage, service terminé</div>
+                <div class="aca-photo--empty" style="border-radius:12px">À FOURNIR — cuisine professionnelle, inox dégraissé</div>
+                <div style="position:relative;min-width:0;height:100%;border-radius:12px;overflow:hidden">
+                    <div class="aca-photo"><img src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?auto=format&fit=crop&w=900&q=70" alt="Matériel — autolaveuse, chariot, microfibres codées couleur"><a class="aca-photo__credit" href="https://unsplash.com/@towfiqu999999" target="_blank" rel="noopener">Photo par Towfiqu barbhuiya sur Unsplash</a></div>
+                </div>
+                <div style="position:relative;min-width:0;height:100%;border-radius:12px;overflow:hidden">
+                    <div class="aca-photo"><img src="https://images.unsplash.com/photo-1646980241033-cd7abda2ee88?auto=format&fit=crop&w=900&q=70" alt="Agent en intervention, escalier d'immeuble"><a class="aca-photo__credit" href="https://unsplash.com/@josuemichelphotography" target="_blank" rel="noopener">Photo par Josue Michel sur Unsplash</a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="engagements" style="padding:104px 0;background:var(--marine-800);position:relative;overflow:hidden">
+        <span class="aca-ghost aca-ghost--light" data-parallax="0.24" aria-hidden="true" style="font-size:clamp(130px,15vw,230px);right:-50px;bottom:-50px">qualité</span>
+        <div style="position:absolute;inset:0;background:var(--pattern-stripe-dark)"></div>
+        <div class="aca-engagements-grid" style="position:relative;max-width:1200px;margin:0 auto;padding:0 40px">
+            <div>
+                <div style="display:flex;align-items:center;gap:12px"><span style="width:36px;height:2px;background:var(--aqua-500)"></span><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-300)">Engagements qualité ACA</span></div>
+                <h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(30px,3.4vw,44px);line-height:1.08;letter-spacing:-.025em;font-weight:700;color:#fff;margin:14px 0 40px;max-width:520px">Ce sur quoi vous pouvez compter</h2>
+                <div data-reveal-stagger class="aca-engagements-list">
+                    {% for item in ['Personnel formé, discret et ponctuel', 'Matériel et produits conformes aux normes', 'Contrôle qualité régulier', "Remplacement immédiat en cas d'absence", 'Horaires flexibles : matin, soir, week-end', 'Assurance responsabilité civile professionnelle'] %}
+                    <div style="display:flex;flex-direction:column;gap:8px;border-top:1px solid rgba(255,255,255,.18);padding-top:16px"><span style="font-family:var(--font-mono);font-size:12px;color:var(--aqua-400)">{{ '%02d'|format(loop.index) }}</span><span style="font-size:16px;font-weight:600;color:#fff;line-height:1.4">{{ item }}</span></div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div data-reveal style="background:#fff;border-radius:14px;box-shadow:var(--shadow-3);overflow:hidden;display:flex;flex-direction:column">
+                <div style="height:170px">
+                    <div class="aca-photo">
+                        <img src="https://images.unsplash.com/photo-1627905646269-7f034dcc5738?auto=format&fit=crop&w=1200&q=70" alt="Détail — main gantée désinfectant une poignée">
+                        <a class="aca-photo__credit" href="https://unsplash.com/@towfiqu999999" target="_blank" rel="noopener">Photo par Towfiqu barbhuiya sur Unsplash</a>
+                    </div>
+                </div>
+                <div style="padding:32px 36px 36px;display:flex;flex-direction:column;gap:20px">
+                    <span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-700)">Modalités de collaboration</span>
+                    <h3 style="font-family:var(--font-display);font-size:28px;font-weight:700;color:var(--ink-900);margin:0;letter-spacing:-.015em">Un référent unique, un contrat clair</h3>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <span class="aca-badge aca-badge--marine">Mensuel</span><span class="aca-badge aca-badge--marine">Trimestriel</span><span class="aca-badge aca-badge--marine">Annuel</span>
+                    </div>
+                    <ul class="aca-checklist" style="margin:0;padding:0;list-style:none">
+                        <li class="aca-check"><span class="aca-check__mark"><i data-lucide="calendar-check" width="16" height="16"></i></span>Interventions quotidiennes, hebdomadaires ou sur mesure</li>
+                        <li class="aca-check"><span class="aca-check__mark"><i data-lucide="users" width="16" height="16"></i></span>Un référent unique pour le suivi de vos prestations</li>
+                        <li class="aca-check"><span class="aca-check__mark"><i data-lucide="file-text" width="16" height="16"></i></span>Devis détaillé et gratuit sous 24 h après visite</li>
+                    </ul>
+                    <div style="height:1px;background:var(--ink-200)"></div>
+                    <a href="#contact" class="aca-btn aca-btn--secondary aca-btn--block">Obtenir une visite technique</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding:96px 0">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px">
+            <div style="text-align:center;max-width:620px;margin:0 auto"><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-700)">Comment ça se passe</span><h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(28px,3.1vw,40px);line-height:1.1;letter-spacing:-.025em;font-weight:700;color:var(--ink-900);margin:14px 0 0">Quatre étapes, aucune surprise</h2></div>
+            <div style="position:relative;margin-top:56px">
+                <div style="position:absolute;left:8%;right:8%;top:18px;height:1px;background:var(--ink-200)"></div>
+                <div data-reveal-stagger class="aca-steps-grid">
+                    {% for step in [{n: 1, title: 'Prise de contact', desc: 'Par e-mail ou sur WhatsApp, en quelques lignes.'}, {n: 2, title: 'Visite technique gratuite', desc: "Nous évaluons surface, fréquence et niveau d'encrassement."}, {n: 3, title: 'Devis sous 24 h', desc: 'Détaillé, gratuit et sans engagement.'}, {n: 4, title: 'Démarrage et suivi', desc: 'Un référent unique, un contrôle qualité régulier.'}] %}
+                    <div class="aca-step">
+                        <span class="aca-step__num">{{ step.n }}</span>
+                        <div class="aca-step__body"><span class="aca-step__title">{{ step.title }}</span><span class="aca-step__desc">{{ step.desc }}</span></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tarifs" style="padding:96px 0;background:var(--ink-050);border-top:1px solid var(--ink-200);position:relative;overflow:hidden">
+        <span class="aca-ghost" data-parallax="0.2" aria-hidden="true" style="font-size:clamp(110px,13vw,190px);left:-30px;bottom:-40px">tarifs</span>
+        <div class="aca-tarifs-grid" style="max-width:1200px;margin:0 auto;padding:0 40px">
+            <div>
+                <span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-700)">Tarification</span>
+                <h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(28px,3.1vw,40px);line-height:1.1;letter-spacing:-.025em;font-weight:700;color:var(--ink-900);margin:14px 0 16px">Un prix établi sur mesure, jamais au hasard</h2>
+                <p style="font-size:16px;line-height:1.6;color:var(--ink-500);margin:0 0 24px;max-width:420px">Le tarif est calculé après une visite technique gratuite de vos locaux, sur quatre critères objectifs.</p>
+                <div style="display:flex;align-items:center;gap:12px"><span class="aca-badge aca-badge--amber">Devis gratuit sous 24 h</span><a href="#contact" class="aca-btn aca-btn--primary">Demander un devis</a></div>
+            </div>
+            <div data-reveal-stagger class="aca-tarifs-tiles">
+                {% for tile in [{icon: 'ruler', title: 'La superficie', desc: 'Surface totale et nombre de niveaux à entretenir.'}, {icon: 'calendar-check', title: 'La fréquence', desc: 'Quotidienne, hebdomadaire ou sur mesure.'}, {icon: 'list-checks', title: 'Le type de prestation', desc: 'Entretien courant ou intervention spécialisée.'}, {icon: 'droplets', title: "L'encrassement initial", desc: 'Un premier passage de remise à niveau si nécessaire.'}] %}
+                <div class="aca-tile" style="background:#fff;border:1px solid var(--ink-200);border-radius:10px;padding:24px;display:flex;flex-direction:column;gap:10px">
+                    <i data-lucide="{{ tile.icon }}" width="22" height="22" style="color:var(--marine-600)"></i>
+                    <span style="font-family:var(--font-display);font-size:18px;font-weight:600;color:var(--ink-900)">{{ tile.title }}</span>
+                    <span style="font-size:14px;color:var(--ink-500);line-height:1.5">{{ tile.desc }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section style="padding:96px 0">
+        <div data-reveal style="max-width:900px;margin:0 auto;padding:0 40px">
+            <h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(26px,2.8vw,36px);line-height:1.1;letter-spacing:-.025em;font-weight:700;color:var(--ink-900);margin:0 0 32px">Questions fréquentes</h2>
+            <div class="aca-accordion">
+                {% set faq = [
+                    {q: 'Sous quel délai recevons-nous le devis ?', a: 'Le devis détaillé et gratuit vous est adressé sous 24 h après la visite technique de vos locaux.'},
+                    {q: 'La visite des locaux est-elle payante ?', a: "Non. La visite technique est gratuite et sans engagement : elle sert à évaluer la superficie, la fréquence nécessaire et le niveau d'encrassement initial."},
+                    {q: "Pouvez-vous intervenir en dehors de nos heures d'ouverture ?", a: 'Oui. Nos horaires sont flexibles : tôt le matin, en soirée ou le week-end, selon vos contraintes.'},
+                    {q: 'Que se passe-t-il si un agent est absent ?', a: 'Le remplacement est immédiat. Un référent unique assure le suivi de vos prestations et reste votre interlocuteur.'},
+                    {q: 'Quels types de contrats proposez-vous ?', a: 'Des contrats mensuels, trimestriels ou annuels, avec des interventions quotidiennes, hebdomadaires ou sur mesure.'}
+                ] %}
+                {% for item in faq %}
+                <details class="aca-accordion__item"{% if loop.first %} open{% endif %}>
+                    <summary>{{ item.q }}<span class="aca-accordion__chevron"><i data-lucide="chevron-down" width="18" height="18"></i></span></summary>
+                    <div class="aca-accordion__panel">{{ item.a }}</div>
+                </details>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" style="background:var(--marine-800);padding:96px 0;position:relative;overflow:hidden">
+        <span class="aca-ghost aca-ghost--light" data-parallax="0.26" aria-hidden="true" style="font-size:clamp(130px,15vw,220px);left:-40px;top:-54px">contact</span>
+        <div style="position:absolute;inset:0;background:var(--pattern-stripe-dark)"></div>
+        <div class="aca-contact-grid" style="position:relative;max-width:1200px;margin:0 auto;padding:0 40px">
+            <div>
+                <div style="display:flex;align-items:center;gap:12px"><span style="width:36px;height:2px;background:var(--aqua-500)"></span><span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-300)">Devis gratuit — service commercial</span></div>
+                <h2 data-split data-reveal style="font-family:var(--font-display);font-size:clamp(30px,3.4vw,44px);line-height:1.08;letter-spacing:-.025em;font-weight:700;color:#fff;margin:14px 0 16px">Parlons de vos locaux</h2>
+                <p style="font-size:17px;line-height:1.6;color:var(--marine-200);margin:0 0 32px;max-width:440px">Décrivez votre site en quelques lignes : nous planifions une visite technique gratuite et revenons vers vous sous 24 h ouvrées.</p>
+                <div style="display:flex;flex-direction:column;gap:12px;max-width:440px">
+                    <a href="https://wa.me/33644959630" class="aca-channel aca-channel--inverse aca-channel--whatsapp">
+                        <span class="aca-channel__icon"><i data-lucide="message-circle" width="20" height="20"></i></span>
+                        <span class="aca-channel__text"><span class="aca-channel__label">WhatsApp — réponse en journée</span><span class="aca-channel__value">+33 6 44 95 96 30</span></span>
+                        <span class="aca-channel__arrow"><i data-lucide="chevron-right" width="18" height="18"></i></span>
+                    </a>
+                    <a href="mailto:acanettoyage.243@gmail.com" class="aca-channel aca-channel--inverse">
+                        <span class="aca-channel__icon"><i data-lucide="mail" width="20" height="20"></i></span>
+                        <span class="aca-channel__text"><span class="aca-channel__label">E-mail — service commercial</span><span class="aca-channel__value">acanettoyage.243@<wbr>gmail.com</span></span>
+                        <span class="aca-channel__arrow"><i data-lucide="chevron-right" width="18" height="18"></i></span>
+                    </a>
+                    <div class="aca-channel aca-channel--inverse">
+                        <span class="aca-channel__icon"><i data-lucide="map-pin" width="20" height="20"></i></span>
+                        <span class="aca-channel__text"><span class="aca-channel__label">Siège social — Lyon</span><span class="aca-channel__value">17 chemin des Prés, 69110</span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div data-reveal style="background:#fff;border-radius:14px;box-shadow:var(--shadow-3);padding:36px;display:flex;flex-direction:column;gap:20px">
+                <h3 style="font-family:var(--font-display);font-size:24px;font-weight:700;color:var(--ink-900);margin:0;letter-spacing:-.015em">Demander un devis</h3>
+                <form method="post" action="{{ path('app_contact') }}" style="display:flex;flex-direction:column;gap:20px">
+                    <div class="aca-field">
+                        <label class="aca-field__label" for="t-type">Type de nettoyage souhaité <span class="aca-field__req">*</span></label>
+                        <div class="aca-select-wrap">
+                            <select class="aca-select" id="t-type" name="type_nettoyage" required>
+                                <option>Véhicule</option><option>Restaurant</option><option selected>Bureau</option><option>Individuel (maison, appartement)</option>
+                            </select>
+                            <span class="aca-select-wrap__chevron"><i data-lucide="chevron-down" width="16" height="16"></i></span>
+                        </div>
+                    </div>
+                    <div class="aca-contact-row2">
+                        <div class="aca-field"><label class="aca-field__label" for="t-prenom">Prénom <span class="aca-field__req">*</span></label><input class="aca-input" id="t-prenom" name="prenom" autocomplete="given-name" placeholder="Claire" required></div>
+                        <div class="aca-field"><label class="aca-field__label" for="t-nom">Nom <span class="aca-field__req">*</span></label><input class="aca-input" id="t-nom" name="nom" autocomplete="family-name" placeholder="Martin" required></div>
+                        <div class="aca-field"><label class="aca-field__label" for="t-mail">E-mail <span class="aca-field__req">*</span></label><input class="aca-input" id="t-mail" name="email" type="email" autocomplete="email" placeholder="vous@societe.fr" required></div>
+                        <div class="aca-field"><label class="aca-field__label" for="t-tel">Téléphone / WhatsApp</label><input class="aca-input" id="t-tel" name="telephone" type="tel" autocomplete="tel" placeholder="06 00 00 00 00"></div>
+                        <div class="aca-field"><label class="aca-field__label" for="t-ville">Ville ou code postal <span class="aca-field__req">*</span></label><input class="aca-input" id="t-ville" name="ville" autocomplete="address-level2" placeholder="Lyon 2e, Paris 15e…" required></div>
+                        <div class="aca-field"><label class="aca-field__label" for="t-soc">Société <span style="font-weight:400;color:var(--ink-500)">(facultatif)</span></label><input class="aca-input" id="t-soc" name="entreprise" autocomplete="organization" placeholder="Nom de la structure"></div>
+                    </div>
+                    <div class="aca-field">
+                        <label class="aca-field__label" for="t-freq">Fréquence souhaitée</label>
+                        <div class="aca-select-wrap">
+                            <select class="aca-select" id="t-freq" name="frequence">
+                                <option>Ponctuelle / sur mesure</option><option>Quotidienne</option><option selected>Hebdomadaire</option><option>Bimensuelle</option>
+                            </select>
+                            <span class="aca-select-wrap__chevron"><i data-lucide="chevron-down" width="16" height="16"></i></span>
+                        </div>
+                    </div>
+                    <div class="aca-field"><label class="aca-field__label" for="t-msg">Vos besoins</label><textarea class="aca-textarea" id="t-msg" name="message" rows="3" placeholder="Superficie, contraintes d'horaires, prestations spécialisées…"></textarea></div>
+                    <div class="aca-field">
+                        <span class="aca-field__label">Réponse souhaitée par</span>
+                        <div style="display:flex;gap:24px;flex-wrap:wrap">
+                            <label class="aca-choice"><input type="radio" name="canal" value="e-mail" checked><span class="aca-choice__box aca-choice__box--radio"></span><span class="aca-choice__text"><span>E-mail</span></span></label>
+                            <label class="aca-choice"><input type="radio" name="canal" value="WhatsApp"><span class="aca-choice__box aca-choice__box--radio"></span><span class="aca-choice__text"><span>WhatsApp</span></span></label>
+                        </div>
+                    </div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap">
+                        <button class="aca-btn aca-btn--primary aca-btn--lg" type="submit">Envoyer la demande</button>
+                        <a href="https://wa.me/33644959630" class="aca-btn aca-btn--whatsapp aca-btn--lg">Envoyer sur WhatsApp</a>
+                    </div>
+                    <span style="font-size:13px;color:var(--ink-500)">Réponse sous 24 h ouvrées, par le canal de votre choix.</span>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background:var(--marine-900);color:var(--marine-200);padding:72px 0 0">
+        <div style="max-width:1200px;margin:0 auto;padding:0 40px">
+            <div class="aca-footer-grid" style="padding-bottom:48px">
+                <div style="display:flex;flex-direction:column;gap:16px">
+                    <img src="{{ asset('assets/logo-inverse.svg') }}" alt="ACA Nettoyage" style="display:block;height:44px;width:auto;align-self:flex-start;max-width:100%;flex:0 0 auto">
+                    <p style="font-size:14px;line-height:1.6;max-width:280px;margin:0">Entreprise de nettoyage et de propreté professionnelle. Votre partenaire propreté à Lyon.</p>
+                    <div style="display:flex;gap:8px"><span class="aca-badge aca-badge--inverse">Lyon</span><span class="aca-badge aca-badge--inverse">Paris</span></div>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                    <span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-300)">Prestations</span>
+                    <a href="#prestations" style="font-size:14px;color:var(--marine-200)">Nettoyage de véhicule</a>
+                    <a href="#prestations" style="font-size:14px;color:var(--marine-200)">Immeubles et parties communes</a>
+                    <a href="#prestations" style="font-size:14px;color:var(--marine-200)">Maisons et particuliers</a>
+                    <a href="#prestations" style="font-size:14px;color:var(--marine-200)">Prestations spécialisées</a>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                    <span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-300)">Société</span>
+                    <a href="#secteurs" style="font-size:14px;color:var(--marine-200)">Secteurs</a>
+                    <a href="#engagements" style="font-size:14px;color:var(--marine-200)">Engagements qualité</a>
+                    <a href="#tarifs" style="font-size:14px;color:var(--marine-200)">Tarification</a>
+                    <a href="#contact" style="font-size:14px;color:var(--marine-200)">Contact</a>
+                </div>
+                <div style="display:flex;flex-direction:column;gap:12px">
+                    <span style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--aqua-300)">Contact</span>
+                    <a href="tel:+33644959630" style="font-family:var(--font-mono);font-size:14px;color:#fff">+33 6 44 95 96 30</a>
+                    <a href="mailto:acanettoyage.243@gmail.com" style="font-size:14px;color:var(--marine-200)">acanettoyage.243@<wbr>gmail.com</a>
+                    <span style="font-size:14px">17 chemin des Prés, 69110</span>
+                </div>
+            </div>
+            <div style="border-top:1px solid rgba(255,255,255,.18);padding:22px 0;display:flex;justify-content:space-between;font-size:13px;flex-wrap:wrap;gap:12px">
+                <span>ACA Nettoyage — votre partenaire propreté à Lyon</span>
+                <span>Assurance responsabilité civile professionnelle</span>
+            </div>
+        </div>
+    </footer>
+</div>
+{% endblock %}

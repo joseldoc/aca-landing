@@ -1,0 +1,34 @@
+:root{
+--font-display:"Archivo","Helvetica Neue",Arial,sans-serif;
+--font-body:"Public Sans","Helvetica Neue",Arial,sans-serif;
+--font-mono:"IBM Plex Mono",ui-monospace,monospace;
+
+--weight-regular:400;--weight-medium:500;--weight-semibold:600;--weight-bold:700;--weight-black:800;
+
+/* Display scale — Archivo, tight tracking, used for hero + section titles */
+--text-display-1:64px;--text-display-2:48px;--text-display-3:36px;
+--lh-display-1:1.02;
+--lh-display-2:1.06;
+--lh-display-3:1.12;
+--tracking-display:-0.02em;
+
+/* Heading scale — Archivo 600/700 */
+--text-h1:32px;--text-h2:26px;--text-h3:21px;--text-h4:18px;
+--lh-heading:1.25;
+--tracking-heading:-0.01em;
+
+/* Body scale — Public Sans */
+--text-lead:20px;--text-body:16px;--text-body-sm:15px;--text-caption:13px;--text-micro:11px;
+--lh-body:1.6;
+--lh-lead:1.5;
+--lh-tight:1.4;
+
+/* Eyebrow / overline — uppercase, wide, marine or aqua */
+--text-eyebrow:12px;
+--tracking-eyebrow:0.14em;
+--weight-eyebrow:600;
+
+/* Mono — références de devis, horaires, codes postaux */
+--text-mono:13px;
+--tracking-mono:0.02em;
+}

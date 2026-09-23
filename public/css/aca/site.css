@@ -1,0 +1,82 @@
+/* ACA Nettoyage — mise en page propre à ce site (le reste des styles vit dans les
+   sections, en inline, à la manière du gabarit de référence du design system). */
+
+.acan a{border-bottom:0}
+.acan .nav-l:hover{color:var(--marine-800)!important}
+body{margin:0}
+
+/* ---- utilitaires image / crédit photo (remplace image-slot.js en statique) ---- */
+.aca-photo{position:relative;display:block;width:100%;height:100%;overflow:hidden}
+.aca-photo img{display:block;width:100%;height:100%;object-fit:cover}
+.aca-photo__credit{position:absolute;left:8px;bottom:8px;padding:3px 8px;border-radius:var(--radius-xs);background:rgba(6,43,52,.55);color:#fff;font-size:10px;line-height:1.4;text-decoration:none;border:0}
+.aca-photo__credit:hover{color:#fff;background:rgba(6,43,52,.75)}
+.aca-photo--empty{display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;background:var(--pattern-stripe);color:var(--ink-500);font-size:12px;font-weight:600}
+
+/* ---- header ---- */
+@media(max-width:1000px){
+  .acan .util-mid{display:none!important}
+  .acan .aca-nav{display:none!important}
+}
+
+/* ---- hero ---- */
+.aca-hero-grid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:72px;align-items:center}
+@media(max-width:900px){
+  .aca-hero-grid{grid-template-columns:1fr;gap:40px}
+  .aca-hero-figure{order:-1}
+}
+
+/* ---- domaines d'intervention ---- */
+.aca-domaines-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:20px}
+.aca-domaines-sub{display:grid;grid-template-rows:1fr 1fr;gap:20px}
+.aca-domaines-row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+@media(max-width:900px){
+  .aca-domaines-grid{grid-template-columns:1fr}
+  .aca-domaines-row3{grid-template-columns:1fr}
+}
+
+/* ---- secteurs ---- */
+.aca-secteurs-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
+@media(max-width:900px){.aca-secteurs-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:520px){.aca-secteurs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---- galerie photo ---- */
+.aca-gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-rows:220px;gap:16px}
+.aca-gallery-grid>.span-2{grid-column:span 2;grid-row:span 2}
+@media(max-width:760px){
+  .aca-gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:160px}
+  .aca-gallery-grid>.span-2{grid-column:span 2;grid-row:span 1}
+}
+
+/* ---- engagements ---- */
+.aca-engagements-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:72px;align-items:start}
+.aca-engagements-list{display:grid;grid-template-columns:1fr 1fr;gap:28px 40px}
+@media(max-width:900px){
+  .aca-engagements-grid{grid-template-columns:1fr}
+  .aca-engagements-list{grid-template-columns:1fr}
+}
+
+/* ---- process steps ---- */
+.aca-steps-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+@media(max-width:760px){.aca-steps-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.aca-steps-grid{grid-template-columns:1fr}}
+
+/* ---- tarification ---- */
+.aca-tarifs-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:64px;align-items:center}
+.aca-tarifs-tiles{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){
+  .aca-tarifs-grid{grid-template-columns:1fr}
+  .aca-tarifs-tiles{grid-template-columns:1fr}
+}
+
+/* ---- contact ---- */
+.aca-contact-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:64px;align-items:start}
+.aca-contact-row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:900px){
+  .aca-contact-grid{grid-template-columns:1fr}
+  .aca-contact-row2{grid-template-columns:1fr}
+}
+
+/* ---- footer ---- */
+.aca-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px}
+@media(max-width:760px){.aca-footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.aca-footer-grid{grid-template-columns:1fr}}

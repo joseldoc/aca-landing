@@ -1,0 +1,29 @@
+:root{
+/* ---- Text ---- */
+--text-strong:var(--ink-900);--text-body-color:var(--ink-700);--text-muted:var(--ink-500);
+--text-on-marine:var(--white);--text-on-marine-muted:var(--marine-200);
+--text-link:var(--marine-600);--text-link-hover:var(--aqua-700);
+--text-eyebrow-color:var(--aqua-700);--text-danger:var(--alert-600);--text-success:var(--eco-700);
+
+/* ---- Surfaces ---- */
+--surface-page:var(--white);--surface-subtle:var(--ink-050);--surface-mist:var(--ink-100);
+--surface-card:var(--white);--surface-card-subtle:var(--ink-050);
+--surface-inverse:var(--marine-800);--surface-inverse-deep:var(--marine-900);
+--surface-accent:var(--aqua-100);--surface-eco:var(--eco-100);--surface-amber:var(--amber-100);--surface-danger:var(--alert-100);
+
+/* ---- Borders ---- */
+--border-subtle:var(--ink-200);--border-default:var(--ink-300);--border-inverse:rgba(255,255,255,.18);
+--border-focus:var(--aqua-500);
+
+/* ---- Buttons ---- */
+--btn-primary-bg:var(--marine-700);--btn-primary-bg-hover:var(--marine-800);--btn-primary-bg-active:var(--marine-900);--btn-primary-fg:var(--white);
+--btn-secondary-bg:var(--white);--btn-secondary-fg:var(--marine-700);--btn-secondary-border:var(--marine-300);--btn-secondary-bg-hover:var(--marine-100);
+--btn-accent-bg:var(--aqua-500);--btn-accent-bg-hover:var(--aqua-600);--btn-accent-fg:var(--marine-900);
+--btn-ghost-fg:var(--marine-700);--btn-ghost-bg-hover:var(--ink-100);
+--btn-whatsapp-bg:#1FA855;--btn-whatsapp-bg-hover:#18873F;--btn-whatsapp-fg:var(--white);
+--btn-disabled-bg:var(--ink-200);--btn-disabled-fg:var(--ink-400);
+
+/* ---- Fields ---- */
+--field-bg:var(--white);--field-bg-disabled:var(--ink-100);--field-border:var(--ink-300);
+--field-border-hover:var(--ink-400);--field-border-focus:var(--aqua-500);--field-placeholder:var(--ink-400);
+}

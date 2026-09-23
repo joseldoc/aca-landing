@@ -1,0 +1,17 @@
+:root{
+/* Shadows are cool-tinted (petrol), low-spread, never black-grey */
+--shadow-0:none;
+--shadow-1:0 1px 2px rgba(7,34,42,.06),0 1px 1px rgba(7,34,42,.04);
+--shadow-2:0 2px 6px rgba(7,34,42,.07),0 8px 20px -12px rgba(7,34,42,.14);
+--shadow-3:0 4px 12px rgba(7,34,42,.08),0 24px 48px -24px rgba(7,34,42,.22);
+--shadow-inset-top:inset 0 1px 0 rgba(255,255,255,.5);
+--shadow-focus:0 0 0 var(--focus-ring-width) var(--aqua-200);
+
+/* Diagonal "hygiene stripe" — the one decorative pattern of the brand */
+--pattern-stripe:repeating-linear-gradient(135deg,var(--marine-100) 0 10px,var(--white) 10px 20px);
+--pattern-stripe-dark:repeating-linear-gradient(135deg,rgba(255,255,255,.07) 0 10px,transparent 10px 20px);
+
+/* Protection gradient for text over photography */
+--scrim-bottom:linear-gradient(to top,rgba(6,43,52,.92) 0%,rgba(6,43,52,.55) 45%,rgba(6,43,52,0) 100%);
+--scrim-left:linear-gradient(to right,rgba(6,43,52,.90) 0%,rgba(6,43,52,.35) 55%,rgba(6,43,52,0) 100%);
+}

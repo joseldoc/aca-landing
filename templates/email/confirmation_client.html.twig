@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>Nous avons bien reçu votre demande — ACA Nettoyage</title>
+<!--[if mso]><style>table,td{font-family:Arial,Helvetica,sans-serif!important}</style><![endif]-->
+<style>
+@media (max-width:620px){.aca-w{width:100%!important}.aca-px{padding-left:24px!important;padding-right:24px!important}.aca-h1{font-size:26px!important;line-height:32px!important}.aca-stack{display:block!important;width:100%!important}.aca-stack-gap{padding:0 0 12px 0!important}}
+@media (prefers-color-scheme:dark){.aca-body{background:#0E2E38!important}.aca-card{background:#123843!important}.aca-ink{color:#EDF3F4!important}.aca-muted{color:#BACDD1!important}.aca-soft{background:#0A3A46!important}}
+</style>
+</head>
+<body class="aca-body" style="margin:0;padding:0;background:#EDF3F4;-webkit-text-size-adjust:100%">
+<span style="display:none!important;visibility:hidden;opacity:0;color:transparent;height:0;width:0;overflow:hidden;mso-hide:all;font-size:1px;line-height:1px">Merci {{ prenom }} — votre demande est entre de bonnes mains. Un référent vous recontacte sous 24 h.&#8199;&#847;&#8199;&#847;&#8199;&#847;</span>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="aca-body" style="background:#EDF3F4">
+<tr><td align="center" style="padding:32px 12px">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" border="0" class="aca-w" style="width:600px;max-width:600px">
+
+<tr><td bgcolor="#0A3A46" class="aca-px" style="background:#0A3A46;padding:28px 40px;border-radius:14px 14px 0 0">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+<td style="font-family:Arial,Helvetica,sans-serif;color:#FFFFFF">
+<div style="font-size:26px;line-height:28px;font-weight:800;letter-spacing:-1px;mso-line-height-rule:exactly">ACA</div>
+<div style="font-size:10px;line-height:14px;font-weight:700;letter-spacing:3px;padding-top:2px;mso-line-height-rule:exactly">NETTOYAGE</div>
+<div style="width:118px;height:3px;background:#22B8C6;margin-top:7px;font-size:0;line-height:0">&nbsp;</div>
+</td>
+<td align="right" style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:18px;color:#BDE2E9;mso-line-height-rule:exactly">Lyon · Paris</td>
+</tr></table>
+</td></tr>
+
+<tr><td class="aca-card aca-px" bgcolor="#FFFFFF" style="background:#FFFFFF;padding:44px 40px 12px">
+<div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#087F8B;mso-line-height-rule:exactly">Demande reçue</div>
+<h1 class="aca-h1 aca-ink" style="margin:12px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:32px;line-height:38px;font-weight:800;letter-spacing:-0.8px;color:#07222A;mso-line-height-rule:exactly">Merci {{ prenom }}, votre demande est entre de bonnes mains.</h1>
+<p class="aca-muted" style="margin:18px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:16px;line-height:25px;color:#3A6470;mso-line-height-rule:exactly">Nous avons bien reçu votre demande de devis pour un nettoyage <strong style="color:#07222A" class="aca-ink">{{ type_nettoyage }}</strong>. Un référent ACA vous recontacte <strong style="color:#07222A" class="aca-ink">sous 24 h</strong> par {{ canal }} pour organiser la visite des lieux.</p>
+</td></tr>
+
+<tr><td class="aca-card aca-px" bgcolor="#FFFFFF" style="background:#FFFFFF;padding:24px 40px 8px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="aca-soft" style="background:#F6FAFA;border:1px solid #DCE7E9;border-radius:12px">
+<tr><td style="padding:20px 24px 6px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:16px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#5F868F">Récapitulatif</td></tr>
+<tr><td style="padding:0 24px 18px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:22px;mso-line-height-rule:exactly">
+<tr><td width="42%" class="aca-muted" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#5F868F">Type de nettoyage</td><td class="aca-ink" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#07222A;font-weight:700">{{ type_nettoyage }}</td></tr>
+{% if precision %}<tr><td class="aca-muted" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#5F868F">Précision</td><td class="aca-ink" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#07222A">{{ precision }}</td></tr>{% endif %}
+<tr><td class="aca-muted" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#5F868F">Ville</td><td class="aca-ink" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#07222A">{{ ville }}</td></tr>
+{% if quantite %}<tr><td class="aca-muted" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#5F868F">Superficie / quantité</td><td class="aca-ink" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#07222A">{{ quantite }}</td></tr>{% endif %}
+{% if agence %}<tr><td class="aca-muted" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#5F868F">Agence</td><td class="aca-ink" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#07222A">{{ agence }}</td></tr>{% endif %}
+{% if prestations %}<tr><td class="aca-muted" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#5F868F">Prestations</td><td class="aca-ink" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#07222A">{{ prestations }}</td></tr>{% endif %}
+<tr><td class="aca-muted" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#5F868F">Fréquence souhaitée</td><td class="aca-ink" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#07222A">{{ frequence }}</td></tr>
+<tr><td class="aca-muted" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#5F868F">Réponse par</td><td class="aca-ink" style="padding:9px 0;border-bottom:1px solid #DCE7E9;color:#07222A">{{ canal }}</td></tr>
+<tr><td class="aca-muted" valign="top" style="padding:9px 0;color:#5F868F">Votre message</td><td class="aca-ink" style="padding:9px 0;color:#07222A">{{ message }}</td></tr>
+</table>
+</td></tr>
+</table>
+</td></tr>
+
+<tr><td class="aca-card aca-px" bgcolor="#FFFFFF" style="background:#FFFFFF;padding:32px 40px 8px">
+<div class="aca-ink" style="font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:24px;font-weight:800;color:#07222A;mso-line-height-rule:exactly">La suite, en trois étapes</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="margin-top:16px;font-family:Arial,Helvetica,sans-serif">
+<tr><td width="44" valign="top" style="padding:0 0 18px"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="32" height="32" align="center" bgcolor="#E9FAFC" style="background:#E9FAFC;border-radius:16px;font-size:13px;font-weight:800;color:#087F8B">01</td></tr></table></td>
+<td valign="top" style="padding:5px 0 18px"><div class="aca-ink" style="font-size:15px;line-height:21px;font-weight:700;color:#07222A">Prise de contact sous 24 h</div><div class="aca-muted" style="font-size:14px;line-height:21px;color:#3A6470">Votre référent unique vous appelle ou vous écrit pour préciser le besoin.</div></td></tr>
+<tr><td width="44" valign="top" style="padding:0 0 18px"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="32" height="32" align="center" bgcolor="#E9FAFC" style="background:#E9FAFC;border-radius:16px;font-size:13px;font-weight:800;color:#087F8B">02</td></tr></table></td>
+<td valign="top" style="padding:5px 0 18px"><div class="aca-ink" style="font-size:15px;line-height:21px;font-weight:700;color:#07222A">Visite technique gratuite</div><div class="aca-muted" style="font-size:14px;line-height:21px;color:#3A6470">Superficie, fréquence, niveau d’encrassement : nous évaluons sur place.</div></td></tr>
+<tr><td width="44" valign="top" style="padding:0 0 8px"><table role="presentation" cellpadding="0" cellspacing="0" border="0"><tr><td width="32" height="32" align="center" bgcolor="#E9FAFC" style="background:#E9FAFC;border-radius:16px;font-size:13px;font-weight:800;color:#087F8B">03</td></tr></table></td>
+<td valign="top" style="padding:5px 0 8px"><div class="aca-ink" style="font-size:15px;line-height:21px;font-weight:700;color:#07222A">Devis détaillé sous 24 h</div><div class="aca-muted" style="font-size:14px;line-height:21px;color:#3A6470">Gratuit et sans engagement, contrat mensuel, trimestriel ou annuel.</div></td></tr>
+</table>
+</td></tr>
+
+<tr><td class="aca-card aca-px" bgcolor="#FFFFFF" style="background:#FFFFFF;padding:24px 40px 44px;border-radius:0 0 14px 14px">
+<p class="aca-muted" style="margin:0 0 16px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#3A6470">Une question urgente ? Écrivez-nous directement :</p>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr>
+<td class="aca-stack aca-stack-gap" width="50%" style="padding:0 6px 0 0">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" bgcolor="#0F4C5C" style="background:#0F4C5C;border-radius:10px">
+<a href="https://wa.me/33644959630" style="display:block;padding:15px 18px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;font-weight:700;color:#FFFFFF;text-decoration:none;border-radius:10px">WhatsApp</a>
+</td></tr></table>
+</td>
+<td class="aca-stack" width="50%" style="padding:0 0 0 6px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td align="center" style="border:2px solid #0F4C5C;border-radius:10px">
+<a href="tel:+33644959630" class="aca-ink" style="display:block;padding:13px 18px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:20px;font-weight:700;color:#0F4C5C;text-decoration:none;border-radius:10px">06 44 95 96 30</a>
+</td></tr></table>
+</td>
+</tr></table>
+<p class="aca-muted" style="margin:28px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:23px;color:#3A6470">À très bientôt,<br><strong class="aca-ink" style="color:#07222A">L’équipe ACA Nettoyage</strong></p>
+</td></tr>
+
+<tr><td class="aca-px" style="padding:28px 40px 8px;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#5F868F;text-align:center;mso-line-height-rule:exactly">
+<strong style="color:#1C4450">ACA Nettoyage</strong> — Votre partenaire propreté à Lyon et Paris<br>
+17 chemin des Prés, 69110 · <a href="tel:+33644959630" style="color:#087F8B;text-decoration:none">+33 6 44 95 96 30</a> · <a href="mailto:acanettoyage.243@gmail.com" style="color:#087F8B;text-decoration:none">acanettoyage.243@gmail.com</a><br>
+<span style="color:#8FADB4">Vous recevez ce message suite à votre demande sur notre site. Aucune inscription à une liste de diffusion.</span>
+</td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>
