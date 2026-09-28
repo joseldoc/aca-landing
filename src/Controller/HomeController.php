@@ -35,6 +35,12 @@ class HomeController extends AbstractController
             return $this->redirect($this->generateUrl('app_home').'#contact');
         }
 
+        if (false === filter_var($email, \FILTER_VALIDATE_EMAIL)) {
+            $this->addFlash('error', 'Cette adresse e-mail ne semble pas valide. Vérifiez-la et renvoyez la demande.');
+
+            return $this->redirect($this->generateUrl('app_home').'#contact');
+        }
+
         $telephone = trim((string) $request->request->get('telephone'));
         $vars = [
             'prenom' => $prenom,

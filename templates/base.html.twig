@@ -6,15 +6,19 @@
     <title>{% block title %}ACA Nettoyage — Entreprise de nettoyage et propreté à Lyon & Paris{% endblock %}</title>
     <meta name="description" content="{% block meta_description %}ACA Nettoyage entretient vos bureaux, immeubles, véhicules et logements à Lyon et à Paris. Devis gratuit sous 24 h après visite technique.{% endblock %}">
     <link rel="icon" href="{{ asset('assets/logo-mark.svg') }}" type="image/svg+xml">
+    <link rel="preconnect" href="https://images.unsplash.com">
     <link rel="stylesheet" href="{{ asset('css/aca/entry.css') }}">
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
+    <a class="aca-skip" href="#contenu">Aller au contenu</a>
     {% block body %}{% endblock %}
 
-    <script src="https://unpkg.com/lucide@latest"></script>
+    {# Version figée : @latest pouvait changer ou casser les icônes sans prévenir. #}
+    <script src="https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
     <script src="{{ asset('js/aca-motion.js') }}" defer></script>
     <script src="{{ asset('js/aca-motion-fx.js') }}" defer></script>
+    <script src="{{ asset('js/aca-site.js') }}" defer></script>
     {% block javascripts %}{% endblock %}
     <script>
         window.addEventListener('DOMContentLoaded', function () {

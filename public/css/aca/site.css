@@ -80,3 +80,88 @@ body{margin:0}
 .aca-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.2fr;gap:48px}
 @media(max-width:760px){.aca-footer-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.aca-footer-grid{grid-template-columns:1fr}}
+
+/* ==== Améliorations UI/UX (accessibilité, mobile, formulaire) ==== */
+
+/* ---- ancres : le titre de section ne passe plus sous le header collant ---- */
+html{scroll-padding-top:88px}
+@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+
+/* ---- conteneur et typographie de section (remplace les styles inline répétés) ---- */
+.aca-container{max-width:1200px;margin:0 auto;padding:0 40px}
+@media(max-width:600px){.aca-container{padding:0 20px}}
+.aca-eyebrow--inverse{color:var(--aqua-300)}
+.aca-eyebrow-row{display:flex;align-items:center;gap:12px}
+.aca-rule{flex:0 0 auto;width:36px;height:2px;background:var(--aqua-500)}
+.aca-h2{font-family:var(--font-display);font-size:clamp(30px,3.4vw,44px);line-height:1.08;letter-spacing:-.025em;font-weight:700;color:var(--ink-900);margin:0}
+.aca-h2--md{font-size:clamp(28px,3.1vw,40px);line-height:1.1}
+.aca-h2--sm{font-size:clamp(26px,2.8vw,36px);line-height:1.1}
+.aca-h2--xs{font-size:clamp(24px,2.4vw,30px);line-height:1.15;letter-spacing:-.02em}
+.aca-h2--xl{font-size:clamp(34px,4.2vw,56px);line-height:1.04;letter-spacing:-.03em}
+.aca-h2--inverse{color:#fff}
+.aca-lead{font-size:16px;line-height:1.6;color:var(--ink-500);margin:0}
+
+/* ---- lien d'évitement ---- */
+.aca-skip{position:absolute;left:16px;top:-80px;z-index:210;padding:12px 18px;border-radius:var(--radius-control);background:var(--marine-900);color:#fff!important;font-weight:600;transition:top var(--duration-fast) var(--ease-out)}
+.aca-skip:focus{top:16px}
+main:focus{outline:none}
+
+/* ---- crédits photo : cible tactile ≥ 24 px ---- */
+.aca-photo__credit{display:inline-flex;align-items:center;min-height:24px;font-size:11px}
+
+/* ---- navigation mobile ---- */
+.aca-menu-btn{display:none;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid var(--ink-200);border-radius:var(--radius-control);background:#fff;color:var(--marine-800);cursor:pointer}
+.aca-menu-btn:hover{background:var(--marine-100)}
+.aca-mnav{position:fixed;inset:0;z-index:130;display:flex;flex-direction:column;background:var(--marine-900);color:#fff;padding:0 20px 32px;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 220ms var(--ease-out),transform 280ms var(--ease-out),visibility 0s linear 280ms}
+.aca-mnav.is-open{opacity:1;visibility:visible;transform:none;transition:opacity 220ms var(--ease-out),transform 280ms var(--ease-out),visibility 0s}
+.aca-mnav__top{display:flex;align-items:center;justify-content:space-between;height:80px;flex:0 0 auto}
+.aca-mnav__close{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-control);background:transparent;color:#fff;cursor:pointer}
+.aca-mnav__links{display:flex;flex-direction:column;margin:24px 0 32px;border-top:1px solid rgba(255,255,255,.14)}
+.aca-mnav__links a{display:flex;align-items:center;justify-content:space-between;min-height:60px;border-bottom:1px solid rgba(255,255,255,.14);font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:-.015em;color:#fff}
+.aca-mnav__links a:hover{color:var(--aqua-300)}
+.aca-mnav__links .lucide{color:var(--aqua-400)}
+.aca-mnav__cta{display:flex;flex-direction:column;gap:12px;margin-top:auto}
+.aca-mnav__tel{font-family:var(--font-mono);color:var(--marine-200)!important;text-align:center;padding:12px}
+body.aca-menu-open{overflow:hidden}
+body.aca-menu-open [data-sticky-header]{transform:none!important}
+@media(max-width:1000px){.aca-menu-btn{display:inline-flex}}
+@media(min-width:1001px){.aca-mnav{display:none}}
+@media(max-width:600px){
+  .aca-header-inner{padding:0 20px!important;gap:16px!important}
+  .aca-header-cta{display:none!important}
+}
+
+/* ---- raclette avant / après : défilement raccourci sur mobile ---- */
+.aca-wipe-track{height:190vh;min-height:990px;position:relative}
+@media(max-width:760px){.aca-wipe-track{height:140vh;min-height:760px}}
+
+/* ---- statistiques : 2 colonnes sur tablette/mobile ---- */
+.aca-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--ink-200);border-top:0;border-radius:0 0 12px 12px;background:#fff;box-shadow:var(--shadow-1)}
+.aca-stats-grid>div{padding:28px 26px}
+.aca-stats-grid>div+div{border-left:1px solid var(--ink-200)}
+@media(max-width:760px){
+  .aca-stats-grid{grid-template-columns:1fr 1fr}
+  .aca-stats-grid>div{padding:22px 18px}
+  .aca-stats-grid>div:nth-child(odd){border-left:0}
+  .aca-stats-grid>div:nth-child(n+3){border-top:1px solid var(--ink-200)}
+}
+
+/* ---- hero : carte flottante qui ne déborde plus sur mobile ---- */
+@media(max-width:900px){
+  .aca-hero-media{height:300px!important}
+  .aca-hero-float{right:12px!important;top:auto!important;bottom:-28px;width:220px!important;padding:16px 18px!important}
+  .aca-hero-media .aca-photo__credit{bottom:auto;top:8px}
+}
+
+/* ---- formulaire : erreurs en ligne et état d'envoi ---- */
+.aca-input[aria-invalid="true"],.aca-textarea[aria-invalid="true"],.aca-select[aria-invalid="true"]{border-color:var(--alert-600)}
+.aca-input[aria-invalid="true"]:focus{box-shadow:0 0 0 3px var(--alert-100)}
+.aca-field__error{display:flex;align-items:center;gap:6px;font-size:var(--text-caption);font-weight:500;color:var(--alert-700)}
+.aca-field__error[hidden]{display:none}
+.aca-form-status{border-radius:var(--radius-sm)}
+.aca-form-status:focus{outline:none;box-shadow:var(--shadow-focus)}
+.aca-btn[aria-busy="true"]{cursor:progress;opacity:.8}
+.aca-spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:aca-spin-s 700ms linear infinite}
+@keyframes aca-spin-s{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.aca-spinner{animation-duration:2s}}
+@media(max-width:600px){.aca-hero-grid{padding-left:20px!important;padding-right:20px!important}}
