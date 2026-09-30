@@ -2,6 +2,18 @@
 
 {% block body %}
 <div class="acan" data-cursor data-hide-header data-to-top data-intro="{{ asset('assets/logo-inverse.svg') }}" style="font-family:var(--font-body);color:var(--ink-700);background:#fff">
+    <script>
+        /* Rideau d'ouverture : une fois par session seulement (pas après l'envoi du
+           formulaire). Quand il joue, l'entrée du héros attend qu'il se lève. Doit
+           s'exécuter avant aca-motion-fx.js, qui lit [data-intro] à l'initialisation. */
+        (function (el) {
+            var play = true;
+            try { play = !sessionStorage.getItem('aca-intro'); sessionStorage.setItem('aca-intro', '1'); } catch (e) {}
+            if (!play || (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) { el.removeAttribute('data-intro'); return; }
+            el.classList.add('is-intro');
+            setTimeout(function () { el.classList.remove('is-intro'); }, 1350);
+        })(document.currentScript.parentElement);
+    </script>
     <div class="aca-progress" data-progress></div>
 
     <div style="background:var(--marine-900);color:var(--marine-200)">
@@ -55,7 +67,7 @@
     <section id="accueil" style="background:var(--marine-900);position:relative;overflow:hidden">
         <span class="aca-ghost aca-ghost--light" data-parallax="0.3" aria-hidden="true" style="font-size:clamp(160px,20vw,300px);left:-30px;bottom:-68px">propreté</span>
         <div style="position:absolute;inset:0;background:var(--pattern-stripe-dark)"></div>
-        <div style="position:absolute;top:-120px;right:-80px;width:520px;height:520px;border-radius:999px;background:radial-gradient(closest-side,rgba(34,184,198,.18),transparent);animation:aca-glow 7s var(--ease-in-out) infinite"></div>
+        <div style="position:absolute;top:-120px;right:-80px;width:520px;height:520px;border-radius:999px;background:radial-gradient(closest-side,rgba(34,184,198,.18),transparent)" class="aca-hero-glow"></div>
         <div class="aca-hero-grid" style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(40px,5vw,104px) 40px clamp(56px,7vw,128px)">
             <div style="display:flex;flex-direction:column;gap:26px">
                 <div class="aca-enter aca-enter-1 aca-eyebrow-row"><span class="aca-rule aca-rule-grow"></span><span class="aca-eyebrow aca-eyebrow--inverse">Nettoyage &amp; propreté professionnelle</span></div>
@@ -71,24 +83,29 @@
                     <span style="display:flex;align-items:center;gap:8px"><i data-lucide="map-pin" width="16" height="16" style="color:var(--aqua-400)"></i>Lyon &amp; Paris</span>
                 </div>
             </div>
-            <div class="aca-enter-right aca-hero-figure" style="position:relative" data-parallax="0.1">
+            <div class="aca-enter-right aca-hero-figure" style="position:relative">
+                <div data-parallax="0.1" style="position:relative">
                 <div data-tilt="4" class="aca-media-reveal--load aca-hero-media" style="position:relative;width:100%;min-width:0;height:420px;border-radius:14px;overflow:hidden;background:var(--marine-100)">
                     <div class="aca-photo">
                         <img fetchpriority="high" src="https://images.unsplash.com/photo-1504297050568-910d24c426d3?auto=format&fit=crop&w=1800&q=70" alt="Couloir vitré d'immeuble tertiaire, hors horaires">
                         <a class="aca-photo__credit" href="https://unsplash.com/@miabaker" target="_blank" rel="noopener">Photo par Mia Baker sur Unsplash</a>
                     </div>
                 </div>
-                <div class="aca-float aca-lift aca-hero-float" data-parallax="0.22" style="position:absolute;right:-30px;top:-32px;width:250px;background:#fff;border-radius:12px;box-shadow:var(--shadow-3);padding:20px 22px;display:flex;flex-direction:column;gap:10px;z-index:2">
-                    <span class="aca-eyebrow">Visite technique</span>
-                    <span style="font-family:var(--font-display);font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--marine-800);line-height:1">Gratuite</span>
-                    <span style="font-size:13px;color:var(--ink-500);line-height:1.45">Nous évaluons vos locaux sur place avant tout chiffrage.</span>
+                <div class="aca-hero-float" data-parallax="0.22" style="position:absolute;right:-30px;top:-32px;width:250px;z-index:2">
+                    <div class="aca-float aca-hero-float__card" style="background:#fff;border-radius:12px;box-shadow:var(--shadow-3);padding:20px 22px;display:flex;flex-direction:column;gap:10px">
+                        <span class="aca-eyebrow">Visite technique</span>
+                        <span style="font-family:var(--font-display);font-size:34px;font-weight:800;letter-spacing:-.02em;color:var(--marine-800);line-height:1">Gratuite</span>
+                        <span style="font-size:13px;color:var(--ink-500);line-height:1.45">Nous évaluons vos locaux sur place avant tout chiffrage.</span>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
         <div style="height:4px;background:linear-gradient(to right,var(--aqua-500),var(--marine-600))"></div>
     </section>
 
-    <div style="background:var(--marine-800);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:18px 0">
+    <div data-marquee-band style="position:relative;background:var(--marine-800);border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08);padding:18px 0">
+        <button type="button" class="aca-mq-pause" data-marquee-pause aria-pressed="false" aria-label="Mettre en pause le défilement"><span class="aca-mq-pause__off"><i data-lucide="pause" width="16" height="16" aria-hidden="true"></i></span><span class="aca-mq-pause__on"><i data-lucide="play" width="16" height="16" aria-hidden="true"></i></span></button>
         <div data-marquee="34" style="display:flex;overflow:hidden;width:100%">
             <div style="display:flex;align-items:center;gap:32px;padding-right:32px">
                 {% for label in ['Bureaux et sièges', 'Véhicules et flottes', 'Restaurants et cuisines', 'Maisons et particuliers', 'Immeubles et parties communes', 'Magasins et commerces', 'Cabinets médicaux', 'Fin de chantier'] %}
@@ -142,7 +159,8 @@
         </div>
     </section>
 
-    <section aria-label="Propre, sain, agréable, fiable, flexible" style="background:var(--marine-900);padding:72px 0;overflow:hidden">
+    <section aria-label="Propre, sain, agréable, fiable, flexible" data-marquee-band style="position:relative;background:var(--marine-900);padding:72px 0;overflow:hidden">
+        <button type="button" class="aca-mq-pause aca-mq-pause--corner" data-marquee-pause aria-pressed="false" aria-label="Mettre en pause le défilement"><span class="aca-mq-pause__off"><i data-lucide="pause" width="16" height="16" aria-hidden="true"></i></span><span class="aca-mq-pause__on"><i data-lucide="play" width="16" height="16" aria-hidden="true"></i></span></button>
         <div data-velocity class="aca-velocity" style="display:flex;flex-direction:column;gap:10px">
             {% set velocityWords = ['Propre', 'Sain', 'Agréable', 'Fiable', 'Flexible'] %}
             {% for dir in ['left', 'right'] %}

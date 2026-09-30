@@ -119,7 +119,20 @@
     }
   }
 
-  function init() { menu(); form(); }
+  /* --------------------------------------- pause des rubans (WCAG 2.2.2) */
+  function marqueePause() {
+    [].forEach.call(document.querySelectorAll('[data-marquee-pause]'), function (btn) {
+      var band = btn.closest('[data-marquee-band]');
+      if (!band) return;
+      btn.addEventListener('click', function () {
+        var paused = btn.getAttribute('aria-pressed') !== 'true';
+        btn.setAttribute('aria-pressed', paused ? 'true' : 'false');
+        band.classList.toggle('is-paused', paused);
+      });
+    });
+  }
+
+  function init() { menu(); form(); marqueePause(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
   else init();
 })();
