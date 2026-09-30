@@ -149,7 +149,8 @@ body.aca-menu-open [data-sticky-header]{transform:none!important}
 /* ---- hero : carte flottante qui ne déborde plus sur mobile ---- */
 @media(max-width:900px){
   .aca-hero-media{height:300px!important}
-  .aca-hero-float{right:12px!important;top:auto!important;bottom:-28px;width:220px!important;padding:16px 18px!important}
+  .aca-hero-float{right:12px!important;top:auto!important;bottom:-28px;width:220px!important}
+  .aca-hero-float__card{padding:16px 18px!important}
   .aca-hero-media .aca-photo__credit{bottom:auto;top:8px}
 }
 
@@ -165,3 +166,36 @@ body.aca-menu-open [data-sticky-header]{transform:none!important}
 @keyframes aca-spin-s{to{transform:rotate(360deg)}}
 @media(prefers-reduced-motion:reduce){.aca-spinner{animation-duration:2s}}
 @media(max-width:600px){.aca-hero-grid{padding-left:20px!important;padding-right:20px!important}}
+
+/* ==== Corrections d'animation (surcharges du design system, sans toucher tokens/) ==== */
+
+/* 1. le fondu d'entrée en cascade ne fige plus `transform` : le survol soulève à nouveau */
+.aca-motion [data-reveal-stagger].is-in>*{opacity:1;animation-fill-mode:backwards}
+
+/* 3. rideau d'ouverture : l'entrée du héros attend qu'il se lève */
+.acan.is-intro #accueil .aca-enter,
+.acan.is-intro #accueil .aca-enter-right,
+.acan.is-intro #accueil .aca-rule-grow,
+.acan.is-intro #accueil .aca-media-reveal--load>*{animation-play-state:paused}
+.acan.is-intro #accueil [data-split] .aca-w__i{transform:translateY(105%)}
+
+/* 4. un seul reflet sur les boutons : celui de la couche fx */
+.aca-fx .aca-btn::after{width:auto}
+.aca-fx .aca-btn--accent:hover::after,.aca-fx .aca-btn--primary:hover::after{animation:none}
+
+/* accessibilité : halo du héros en classe, et pause des rubans défilants */
+.aca-hero-glow{animation:aca-glow 7s var(--ease-in-out) infinite}
+.aca-mq-pause{position:absolute;right:16px;top:50%;transform:translateY(-50%);z-index:2;display:flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;border:1px solid rgba(255,255,255,.28);border-radius:var(--radius-pill);background:var(--marine-900);color:#fff;cursor:pointer;transition:background-color var(--duration-fast) var(--ease-in-out)}
+.aca-mq-pause:hover{background:var(--marine-700)}
+.aca-mq-pause--corner{top:auto;bottom:16px;transform:none}
+.aca-mq-pause__on,.aca-mq-pause[aria-pressed="true"] .aca-mq-pause__off{display:none}
+.aca-mq-pause[aria-pressed="true"] .aca-mq-pause__on{display:flex}
+.aca-mq-pause__off{display:flex}
+[data-marquee-band].is-paused .aca-marquee__track{animation-play-state:paused}
+
+@media(prefers-reduced-motion:reduce){
+  .aca-hero-glow{animation:none}
+  .aca-fx .aca-btn::after{display:none}
+  .aca-lift:hover,.aca-tile:hover{transform:none}
+  .aca-mq-pause{display:none}
+}
